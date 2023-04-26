@@ -21,15 +21,20 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/seller/**")
                 .excludePathPatterns("/product/seller/**")
                 .excludePathPatterns("/main/**")
+                .excludePathPatterns("/error/**")
+                .excludePathPatterns("/images/**")
                 .excludePathPatterns("/seller/sellerEmailInputForm/**")
                 .excludePathPatterns("/seller/sellerPasswordUpdateForm/**")
-                .excludePathPatterns("/user/login/**")
-                .excludePathPatterns("/seller/join-form/**")
-                .excludePathPatterns("/user/join/**");
+<<<<<<<<< Temporary merge branch 1
+                .excludePathPatterns("/user/**")
+                .excludePathPatterns("/orderList/**")
+                .excludePathPatterns("/post/list/**")
+                .excludePathPatterns("/post/read/**")
+                .excludePathPatterns("/seller/join-form/**");
 
         registry.addInterceptor(new SellerLoginInterceptor())
-                .order(1)
-                .excludePathPatterns("/static/css/**")
+                .order(1).excludePathPatterns("/static/css/**")
+                .excludePathPatterns("/images/**")
                 .excludePathPatterns("/static/js/**")
                 .excludePathPatterns("/*.ico")
                 .excludePathPatterns("/seller/login-form/**")
@@ -47,6 +52,17 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/user/login/**")
                 .excludePathPatterns("/user/signup/**")
                 .excludePathPatterns("/post/list/**")
+                .excludePathPatterns("/review/**")
                 .excludePathPatterns("/post/read/**");
+=========
+                .excludePathPatterns("/seller/join-form/**")
+                .excludePathPatterns("/user/**")
+                .excludePathPatterns("/order_list/**");
+
+        registry.addInterceptor(new SellerLoginInterceptor())
+                .order(1)
+                .addPathPatterns("/seller/**");
+
+>>>>>>>>> Temporary merge branch 2
     }
 }
