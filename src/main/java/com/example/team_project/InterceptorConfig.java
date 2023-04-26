@@ -17,21 +17,43 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/static/js/**")
                 .excludePathPatterns("/*.ico")
                 .excludePathPatterns("/shop/**")
-                .excludePathPatterns("/error/**")
-                .excludePathPatterns("/images/**")
+                .excludePathPatterns("/product/**")
                 .excludePathPatterns("/seller/**")
                 .excludePathPatterns("/main/**")
                 .excludePathPatterns("/seller/sellerEmailInputForm/**")
                 .excludePathPatterns("/seller/sellerPasswordUpdateForm/**")
                 .excludePathPatterns("/seller/join-form/**")
                 .excludePathPatterns("/user/**")
+                .excludePathPatterns("/order_list/**")
+                .excludePathPatterns("/error/**")
+                .excludePathPatterns("/images/**")
                 .excludePathPatterns("/post/list/**")
-                .excludePathPatterns("/post/read/**")
-                .excludePathPatterns("/order_list/**");
-
+                .excludePathPatterns("/post/read/**");
 
         registry.addInterceptor(new SellerLoginInterceptor())
-                //seller 가 로그인이 되어있으면 add는들어갈수있는거 exclude 로그인이안되어있을때
+                .order(1).excludePathPatterns("/static/css/**")
+                .excludePathPatterns("/images/**")
+                .excludePathPatterns("/static/js/**")
+                .excludePathPatterns("/*.ico")
+                .excludePathPatterns("/seller/login-form/**")
+                .excludePathPatterns("/seller/searchId/**")
+                .excludePathPatterns("/seller/searchPassword/**")
+                .excludePathPatterns("/seller/join-form/**")
+                .excludePathPatterns("/seller/sellerEmailInputForm/**")
+                .excludePathPatterns("/product/detail/**")
+                .excludePathPatterns("/seller/sellerPasswordUpdateForm/**")
+                .excludePathPatterns("/seller/update/**")
+                .excludePathPatterns("/seller/join-form/**")
+                .excludePathPatterns("/update/like/**")
+                .excludePathPatterns("/shop/join/**")
+                .excludePathPatterns("/main/**")
+                .excludePathPatterns("/user/login/**")
+                .excludePathPatterns("/user/signup/**")
+                .excludePathPatterns("/post/list/**")
+                .excludePathPatterns("/review/**")
+                .excludePathPatterns("/post/read/**");
+
+        registry.addInterceptor(new SellerLoginInterceptor())
                 .order(1)
                 .addPathPatterns("/product/detail/**")
                 .addPathPatterns("/product/delete/**")
@@ -47,6 +69,5 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .addPathPatterns("/shop/delete/**")
                 .addPathPatterns("/shop/list/**")
                 .addPathPatterns("/shop/update/**");
-
     }
 }
