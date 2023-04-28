@@ -74,13 +74,14 @@ class CouponApplyServiceImplTest {
 
     @Test
     void 쿠폰_적용_정상작동() {
-        User user = new User("testId", "testPw", "testNane", "testNumber");
+User user = new User("testId", "testPw", "testNane", "testPhone", "testNumber");
         userRepository.save(user);
 
         UserAddress userAddress = new UserAddress(user, "최지혁", "받는이", "010-0000-0000", "서울특별시 강남구", "강남아파드101호", "11111");
         userAddressRepository.save(userAddress);
 
-        Payment payment = new Payment(user, PaymentType.CARD, "1111","");
+        Payment payment = new Payment(user, "paymentName", PaymentType.CARD, "1111");
+
         paymentRepository.save(payment);
 
         OrderList orderList = new OrderList(user, userAddress, payment, LocalDate.now());
@@ -117,13 +118,14 @@ class CouponApplyServiceImplTest {
 
     @Test
     void 쿠폰_적용_정상작동_카테고리여러개() {
-        User user = new User("testId", "testPw", "testNane", "testNumber");
+User user = new User("testId", "testPw", "testNane", "testPhone", "testNumber");
         userRepository.save(user);
 
         UserAddress userAddress = new UserAddress(user, "최지혁", "받는이", "010-0000-0000", "서울특별시 강남구", "강남아파드101호", "11111");
         userAddressRepository.save(userAddress);
 
-        Payment payment = new Payment(user, PaymentType.CARD, "1111","");
+        Payment payment = new Payment(user, "paymentName", PaymentType.CARD, "1111");
+
         paymentRepository.save(payment);
 
         OrderList orderList = new OrderList(user, userAddress, payment, LocalDate.now());
@@ -167,14 +169,15 @@ class CouponApplyServiceImplTest {
 
     @Test
     void 쿠폰_적용_최저가격_못맞춤() {
-        User user = new User("testId", "testPw", "testNane", "testNumber");
+User user = new User("testId", "testPw", "testNane", "testPhone", "testNumber");
         userRepository.save(user);
         Long userId = user.getId();
 
         UserAddress userAddress = new UserAddress(user, "최지혁", "받는이", "010-0000-0000", "서울특별시 강남구", "강남아파드101호", "11111");
         userAddressRepository.save(userAddress);
 
-        Payment payment = new Payment(user, PaymentType.CARD, "1111","");
+        Payment payment = new Payment(user, "paymentName", PaymentType.CARD, "1111");
+
         paymentRepository.save(payment);
 
         OrderList orderList = new OrderList(user, userAddress, payment, LocalDate.now());
@@ -211,14 +214,15 @@ class CouponApplyServiceImplTest {
 
     @Test
     void 쿠폰_적용_유저_고유번호_다름() {
-        User user = new User("testId", "testPw", "testNane", "testNumber");
+User user = new User("testId", "testPw", "testNane", "testPhone", "testNumber");
         userRepository.save(user);
         Long userId = user.getId();
 
         UserAddress userAddress = new UserAddress(user, "최지혁", "받는이", "010-0000-0000", "서울특별시 강남구", "강남아파드101호", "11111");
         userAddressRepository.save(userAddress);
 
-        Payment payment = new Payment(user, PaymentType.CARD, "1111","");
+        Payment payment = new Payment(user, "paymentName", PaymentType.CARD, "1111");
+
         paymentRepository.save(payment);
 
         OrderList orderList = new OrderList(user, userAddress, payment, LocalDate.now());
@@ -255,14 +259,15 @@ class CouponApplyServiceImplTest {
 
     @Test
     void 쿠폰_적용_쿠폰_고유번호_다름() {
-        User user = new User("testId", "testPw", "testNane", "testNumber");
+User user = new User("testId", "testPw", "testNane", "testPhone", "testNumber");
         userRepository.save(user);
         Long userId = user.getId();
 
         UserAddress userAddress = new UserAddress(user, "최지혁", "받는이", "010-0000-0000", "서울특별시 강남구", "강남아파드101호", "11111");
         userAddressRepository.save(userAddress);
 
-        Payment payment = new Payment(user, PaymentType.CARD, "1111","");
+        Payment payment = new Payment(user, "paymentName", PaymentType.CARD, "1111");
+
         paymentRepository.save(payment);
 
         OrderList orderList = new OrderList(user, userAddress, payment, LocalDate.now());
@@ -299,14 +304,15 @@ class CouponApplyServiceImplTest {
 
     @Test
     void 쿠폰_적용_사용된_쿠폰() {
-        User user = new User("testId", "testPw", "testNane", "testNumber");
+User user = new User("testId", "testPw", "testNane", "testPhone", "testNumber");
         userRepository.save(user);
         Long userId = user.getId();
 
         UserAddress userAddress = new UserAddress(user, "최지혁", "받는이", "010-0000-0000", "서울특별시 강남구", "강남아파드101호", "11111");
         userAddressRepository.save(userAddress);
 
-        Payment payment = new Payment(user, PaymentType.CARD, "1111","");
+        Payment payment = new Payment(user, "paymentName", PaymentType.CARD, "1111");
+
         paymentRepository.save(payment);
 
         OrderList orderList = new OrderList(user, userAddress, payment, LocalDate.now());
@@ -345,14 +351,15 @@ class CouponApplyServiceImplTest {
 
     @Test
     void 쿠폰_적용_만료된_쿠폰() {
-        User user = new User("testId", "testPw", "testNane", "testNumber");
+User user = new User("testId", "testPw", "testNane", "testPhone", "testNumber");
         userRepository.save(user);
         Long userId = user.getId();
 
         UserAddress userAddress = new UserAddress(user, "최지혁", "받는이", "010-0000-0000", "서울특별시 강남구", "강남아파드101호", "11111");
         userAddressRepository.save(userAddress);
 
-        Payment payment = new Payment(user, PaymentType.CARD, "1111","");
+        Payment payment = new Payment(user, "paymentName", PaymentType.CARD, "1111");
+
         paymentRepository.save(payment);
 
         OrderList orderList = new OrderList(user, userAddress, payment, LocalDate.now());
